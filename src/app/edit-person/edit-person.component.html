@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-4" style="margin-left: 20vw; margin-right: 20vw;">
+            <fieldset>
+            <legend>Edit form</legend>
+            <form [formGroup]="editform" (ngSubmit)="onSubmit()">
+                <div class="form-group" >
+                    <label for="name">Name</label>
+                    <input type="text" style="margin-left: 10px;" class="formControl" id="name" formControlName="name">
+                </div>
+                <div class="form-group">
+                    <label for="dob">dob</label>
+                    <input type="date" style="margin-left: 10px;" class="formControl" id="dob" formControlName="dob">
+                </div>
+                <div class="form-group">
+                    <label for="email">email Id</label>
+                    <input type="email" style="margin-left: 10px;" class="formControl" id="email" formControlName="email">
+                </div>
+                <div class="form-group">
+                    <label for="avatar">Avatar</label>
+                    <input type="text" style="margin-left: 10px;" class="formControl" id="avatar" formControlName="avatar">
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input type="text" style="margin-left: 10px;" class="formControl" id="country" formControlName="country">
+                </div>
+                <button type="submit" class="btn btn-success" [disabled]="!editform.valid">Submit</button>
+            </form>
+        </fieldset>
+        </div>
+    </div>
+</div>

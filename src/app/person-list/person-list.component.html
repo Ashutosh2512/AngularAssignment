@@ -1,0 +1,24 @@
+<div class="container" *ngIf="persons.length !== 0 && !loading">
+    <div class="row" >
+        <div class="col-md-8 col-lg-12 sol-sm-12">
+        <div style="text-align: center;">
+            <div  class="header" style="display: inline-block; color:black;margin: 5px;width: fit-content;">
+                <h1>List of People Registered</h1>
+            </div>
+            <div class="card-deck" style="margin-top: 40px;margin-left:0px;">
+                <app-person *ngFor="let p of persons;let i=index" [person]="p"></app-person>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="persons.length === 0 && !loading" style="text-align: center;">
+    <p style="font-style: normal; color: green;">List is currently empty. Add something to it.</p>
+</div>
+<div *ngIf="loading" style="text-align: center;">
+    <!-- <p style="font-style: normal; color: green;font-size: x-large;">loading.....</p> -->
+    <div style="display: inline-block;margin-top: 20px;">
+        <div class="loader"></div>
+    </div>
+</div>
+

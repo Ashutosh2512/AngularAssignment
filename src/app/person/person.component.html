@@ -1,0 +1,19 @@
+<mdb-card (click)="onClick($event)" style="margin: 10px; width: 200px;height: 300px; cursor: pointer;">
+    <div class="avatar-container" mdbWavesEffect style="margin: auto;">
+        <div class="avatar-content">
+            <ngx-avatar [facebookId]="person.avatar" [gravatarId]="person.avatar" [name]="person.name" mdbWavesEffect size="50"  [round]="true" size="100"></ngx-avatar>
+        </div>
+
+    </div>
+<mdb-card-body class="text-center" mdbWavesEffect>
+    <mdb-card-title>
+        <strong>{{person.name}}</strong>
+    </mdb-card-title>
+    <br>
+    <mdb-card-text>
+        <p>EmailId: {{person.emailId}}</p>
+        <p>Age: {{person.age}}</p>
+        <p>Country: {{person.country}}</p>
+    </mdb-card-text>
+</mdb-card-body>
+</mdb-card>
