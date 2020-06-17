@@ -13,9 +13,10 @@ export class PersonComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   onClick(event: Event){
     console.log(this.person.id);
-    this.router.navigate(['editperson',this.person.id]);
+    this.router.navigate(['editperson', this.person.id + '']);
   }
 
 }

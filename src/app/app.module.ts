@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import { AppComponent } from './app.component';
 import {AvatarModule} from 'ngx-avatar';
@@ -38,6 +38,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [DatePipe],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

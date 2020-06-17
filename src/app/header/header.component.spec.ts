@@ -19,7 +19,7 @@ describe('HeaderComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('title should be navigationBar', () => {
+    expect(component.title).toEqual('navigationBar');
   });
 });

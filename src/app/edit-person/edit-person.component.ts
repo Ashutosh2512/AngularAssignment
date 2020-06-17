@@ -1,9 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PersonListService } from '../PersonList.service';
-import { stringify } from 'querystring';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CompileShallowModuleMetadata } from '@angular/compiler';
 import { DatePipe } from '@angular/common';
 import { Subscription } from 'rxjs';
 
@@ -22,7 +20,7 @@ export class EditPersonComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-    this.id = 1;
+    this.id = this.route.snapshot.params.id;
     let person: {name: string, dob: Date, email: string, avatar: string, id: number,country: string};
     this.editform = new FormGroup({
       name: new FormControl(null, Validators.required),
@@ -52,9 +50,11 @@ export class EditPersonComponent implements OnInit, OnDestroy {
       this.getSubscription.unsubscribe();
     }
   }
+  getPersonListService(){
+    return this.personListService;
+  }
 
-
-  onSubmit(){
+  onSubmit() {
     const person = {
       name: this.editform.get('name').value,
       email: this.editform.get('email').value,
@@ -65,6 +65,8 @@ export class EditPersonComponent implements OnInit, OnDestroy {
     }
     this.editSubscription = this.personListService.editList(person).subscribe(data => {
       this.router.navigate(['personsList']);
+    }, error => {
+      return;
     });
   }
 

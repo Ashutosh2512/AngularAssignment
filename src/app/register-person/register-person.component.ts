@@ -21,7 +21,7 @@ export class RegisterPersonComponent implements OnInit, OnDestroy {
       name: new FormControl(null, Validators.required),
       dob: new FormControl(null,Validators.required),
       email: new FormControl(null,[Validators.required,Validators.email]),
-      avatar: new FormControl(null),
+      avatar: new FormControl(null, Validators.required),
       country: new FormControl(null, Validators.required)
     });
   }
@@ -45,6 +45,9 @@ export class RegisterPersonComponent implements OnInit, OnDestroy {
     }, error => {
       console.log(error);
     });
+  }
+  getPersonListService(){
+    return this.personlistService;
   }
   
 
